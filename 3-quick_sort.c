@@ -1,23 +1,47 @@
 #include "sort.h"
 
 /**
- * quick_sort - Sorts an array of integers using Quick sort
+ * quick_sort_recursive - Recursively applies quick sort using Lomuto partition
+ * @array: Pointer to array
+ * @low: Starting index of the partition
+ * @high: Ending index of the partition
+ * @size: Size of the full array (for printing)
+ */
+void quick_sort_recursive(int *array, int low, int high, size_t size);
+
+/**
+ * lomuto_partition - Lomuto partition scheme implementation
+ * @array: Array of integers
+ * @low: Starting index
+ * @high: Pivot index
+ * @size: Size of the full array (for printing)
+ *
+ * Return: Final pivot position after partition
+ */
+int lomuto_partition(int *array, int low, int high, size_t size);
+
+/**
+ * quick_sort - Sorts an array of integers in ascending order using Quick sort
  * @array: Pointer to array
  * @size: Number of elements in the array
+ *
+ * Description: Uses the Lomuto partition scheme. Prints the array after
+ * each swap.
  */
 void quick_sort(int *array, size_t size)
 {
 	if (!array || size < 2)
 		return;
+
 	quick_sort_recursive(array, 0, size - 1, size);
 }
 
 /**
- * quick_sort_recursive - Recursive Quick sort
- * @array: Pointer to array
- * @low: Low index
- * @high: High index
- * @size: Array size for print_array
+ * quick_sort_recursive - Helper function to perform quicksort recursively
+ * @array: Array of integers
+ * @low: Starting index of the partition
+ * @high: Ending index of the partition
+ * @size: Size of array for printing
  */
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
@@ -32,13 +56,13 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 }
 
 /**
- * lomuto_partition - Lomuto partition scheme
- * @array: Array
+ * lomuto_partition - Partitions the array using Lomuto scheme
+ * @array: Array of integers
  * @low: Starting index
- * @high: Ending index (pivot)
- * @size: Size for printing
+ * @high: Pivot index
+ * @size: Size of array for printing
  *
- * Return: Pivot index
+ * Return: Index of pivot after partitioning
  */
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
