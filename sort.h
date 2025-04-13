@@ -7,7 +7,7 @@
 void print_array(const int *array, size_t size);
 void print_list(const struct listint_s *list);
 
-/* Sorting function prototypes */
+/* Sorting algorithms */
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(struct listint_s **list);
 void selection_sort(int *array, size_t size);
