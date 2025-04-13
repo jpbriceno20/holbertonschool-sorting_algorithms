@@ -1,27 +1,35 @@
-#ifndef SORT_H
-#define SORT_H
-
-#include <stddef.h>
+#include "sort.h"
 
 /**
- * struct listint_s - Doubly linked list node
- * @n: Integer stored in the node
- * @prev: Pointer to the previous element of the list
- * @next: Pointer to the next element of the list
+ * bubble_sort - Sorts an array of integers using Bubble sort
+ * @array: Pointer to array of integers
+ * @size: Number of elements in the array
+ *
+ * Description: Prints the array after each swap
  */
-typedef struct listint_s
+void bubble_sort(int *array, size_t size)
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
-} listint_t;
+	size_t i, n;
+	int temp, swapped;
 
-/* Function Prototypes */
-void print_array(const int *array, size_t size);
-void print_list(const listint_t *list);
-void bubble_sort(int *array, size_t size);
-void insertion_sort_list(listint_t **list);
-void selection_sort(int *array, size_t size);
-void quick_sort(int *array, size_t size);
+	if (!array || size < 2)
+		return;
 
-#endif /* SORT_H */
+	for (n = size; n > 1; n--)
+	{
+		swapped = 0;
+		for (i = 0; i < n - 1; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				temp = array[i];
+				array[i] = array[i + 1];
+				array[i + 1] = temp;
+				print_array(array, size);
+				swapped = 1;
+			}
+		}
+		if (!swapped)
+			break;
+	}
+}
