@@ -1,0 +1,1 @@
+This project implements various sorting algorithms in C, following Holberton School guidelines. It includes Bubble Sort, Insertion Sort (for doubly linked lists), Selection Sort, and Quick Sort (using the Lomuto partition scheme). Each implementation prints the array or list after every swap to visualize the sorting process.
